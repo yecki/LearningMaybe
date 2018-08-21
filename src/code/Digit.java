@@ -1,4 +1,4 @@
-package Code;
+package code;
 
 public class Digit {
 	private int value = 0;
@@ -16,6 +16,9 @@ public class Digit {
 	}
 	public void increaseProbable() {
 		probable+=10;
+	}
+	public void increaseProbableBy(int by) {
+		probable+=by;
 	}
 	public void decreaseProbable() {
 		probable--;

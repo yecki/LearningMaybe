@@ -1,9 +1,9 @@
-package Code;
+package code;
 
 public class Logic {
 	
 	private int runs = 10000;
-	private String goal = "412109";
+	private String goal = "4123749";
 	
 	private Digit[] curNumber = new Digit[goal.length()];
 	
@@ -13,11 +13,13 @@ public class Logic {
 		}
 		for (int curRun = 0; curRun < runs; curRun++) {
 			for (int index=0; index < curNumber.length; index++) {
-				//skips number on probability
-				if (((int)(Math.random()*100) + 1) <= curNumber[index].getProbable() ) continue;
-				
+				//skips the digit if it is already correct
+			if (curNumber[index].getProbable() >= 100) continue;
+				//checks whether the digit "wants" to change
+			if (!(((int)(Math.random()*100) + 1) <= curNumber[index].getProbable() )) {
 				
 				curNumber[index].setValue((int) (Math.random()*10));
+			}
 				
 				if (goal.substring(index, index+1).equals(""+curNumber[index].getValue())) {
 					curNumber[index].increaseProbable();
